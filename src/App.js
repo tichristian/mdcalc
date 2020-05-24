@@ -1,24 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
+import {MDInput} from './components';
+import { Row, Container, Col, ButtonGroup, Button, InputGroup, FormControl } from 'react-bootstrap';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container bsStyle="default" className="container">
+        <Row>
+          <Col>Sex</Col>
+          <Col>
+            <ButtonGroup>
+              <Button>Female</Button>
+              <Button>Male</Button>
+            </ButtonGroup>
+          </Col>
+        </Row>
+        <Row>
+          <Col>Age</Col>
+          <Col>
+            <MDInput>years</MDInput>
+          </Col>
+        </Row>
+        <Row>
+          <Col>Weight</Col>
+          <Col>
+            <MDInput>kg</MDInput>
+          </Col>
+        </Row>
+        <Row>
+          <Col>Creatinine</Col>
+          <Col>
+            <MDInput>mg/dL</MDInput>
+          </Col>
+        </Row>
+        <Row>
+          <Col>Height</Col>
+          <Col>
+            <MDInput>cm</MDInput>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
