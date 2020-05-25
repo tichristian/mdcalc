@@ -26,7 +26,12 @@ class MDResult extends Component {
   render () {
     return (
       <Container className="container">
-        <Button onClick={this.onCalculate.bind(this)}>Calculate</Button>
+        <Button
+          className="button"
+          onClick={this.onCalculate.bind(this)}
+        >
+          Calculate
+        </Button>
         <div className={this.state.hideResult ? "hidden" : ""}>
           Result: {this.props.score}, {this.props.severity}
         </div>

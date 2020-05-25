@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MDInput } from './MDInput';
-import { Row, Container, Col, ButtonToolbar, Button } from 'react-bootstrap';
+import { Row, Container, Col, ButtonGroup, Button } from 'react-bootstrap';
 import './style.css';
 import {
   genderChanged,
@@ -102,22 +102,22 @@ class MDTable extends Component {
         <Row>
           <Col>Sex</Col>
           <Col>
-            <ButtonToolbar /* todo: set a default active*/>
+            <ButtonGroup>
               <Button
-                className="m-1"
+                className="button"
                 active={this.props.gender === 'female'}
                 onClick={this.onFemale.bind(this)}
               >
                 Female
               </Button>
               <Button
-                className="m-1"
+                className="button"
                 active={this.props.gender === "male"}
                 onClick={this.onMale.bind(this)}
               >
                 Male
               </Button>
-            </ButtonToolbar>
+            </ButtonGroup>
           </Col>
         </Row>
 
