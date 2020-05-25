@@ -2,8 +2,15 @@
 * CSS for all of the components
 */
 
+.container {
+  /* width: 90%; */
+  width: inherit;
+  margin: auto;
+  padding: 16px;
+}
+
 .row {
-  width: 60%;
+
   margin: auto;
   /* border: 1px 1px 0px 0px solid #eee; */
   /* box-shadow: 0 2px 3px #ccc; */
@@ -14,7 +21,6 @@
 
 }
 
-.section {
-  width: 50%;
-  text-align: left;
+.hidden {
+  display:none;
 }
