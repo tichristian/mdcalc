@@ -10,6 +10,10 @@ import {
   heightChanged,
   weightChanged,
   creatinineChanged,
+  ageErrorChanged,
+  weightErrorChanged,
+  heightErrorChanged,
+  creatiningErrorChanged
 } from '../actions';
 import GLOBALS from '../../globals';
 
@@ -73,19 +77,40 @@ class MDTable extends Component {
   }
 
   onAgeChange(event) {
-    this.props.ageChanged(event.target.value);
+    const value = Number(event.target.value);
+    this.props.ageErrorChanged(!Number.isInteger(value))
+
+    if(Number.isInteger(value)){
+      this.props.ageChanged(value);
+    }
+
   }
 
   onHeightChange(event){
-    this.props.heightChanged(event.target.value);
+    const value = Number(event.target.value);
+    this.props.heightErrorChanged(isNaN(value));
+
+    if (!isNaN(value)){
+      this.props.heightChanged(event.target.value);
+    }
   }
 
   onWeightChange(event){
-    this.props.weightChanged(event.target.value);
+    const value = Number(event.target.value);
+    this.props.weightErrorChanged(isNaN(value));
+
+    if (!isNaN(value)){
+      this.props.weightChanged(event.target.value);
+    }
   }
 
   onCreatinineChange(event){
-    this.props.creatinineChanged(event.target.value);
+    const value = Number(event.target.value);
+    this.props.creatiningErrorChanged(isNaN(value));
+
+    if (!isNaN(value)){
+      this.props.creatinineChanged(event.target.value);
+    }
   }
 
   onFemale() {
@@ -127,6 +152,8 @@ class MDTable extends Component {
             <MDInput
               inputValue={this.props.age}
               bindedFunction={this.onAgeChange.bind(this)}
+              errorDisplay={this.props.ageError}
+              errorMessage="Age must be an integer"
             >
               years
             </MDInput>
@@ -139,6 +166,8 @@ class MDTable extends Component {
             <MDInput
               inputValue={this.props.weight}
               bindedFunction={this.onWeightChange.bind(this)}
+              errorDisplay={this.props.weightError}
+              errorMessage="Weight is not a number"
             >
              kg
            </MDInput>
@@ -151,6 +180,8 @@ class MDTable extends Component {
             <MDInput
               inputValue={this.props.creatinine}
               bindedFunction={this.onCreatinineChange.bind(this)}
+              errorDisplay={this.props.creatinineError}
+              errorMessage="Creatinine is not a number"
             >
               mg/dL
             </MDInput>
@@ -163,6 +194,8 @@ class MDTable extends Component {
             <MDInput
               inputValue={this.props.height}
               bindedFunction={this.onHeightChange.bind(this)}
+              errorDisplay={this.props.heightError}
+              errorMessage="Height is a not number"
             >
               cm
             </MDInput>
@@ -179,7 +212,11 @@ const mapStateToProps = state => {
     age: state.profile.age,
     weight: state.profile.weight,
     height: state.profile.height,
-    creatinine: state.profile.creatinine
+    creatinine: state.profile.creatinine,
+    ageError: state.inputError.ageError,
+    weightError: state.inputError.weightError,
+    heightError: state.inputError.heightError,
+    creatinineError: state.inputError.creatinineError
   };
 };
 
@@ -188,5 +225,9 @@ export default connect(mapStateToProps, {
   ageChanged,
   heightChanged,
   weightChanged,
-  creatinineChanged
+  creatinineChanged,
+  ageErrorChanged,
+  weightErrorChanged,
+  heightErrorChanged,
+  creatiningErrorChanged
 }) (MDTable);

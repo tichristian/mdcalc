@@ -54,3 +54,14 @@
   margin-top: 10px;
   padding: 8px;
 }
+
+.error-message {
+  color: "red";
+  font-size: 10px;
+  font-style: italic;
+  padding-top: 3px;
+}
+
+.result-message {
+  padding-top: 3px;
+}
