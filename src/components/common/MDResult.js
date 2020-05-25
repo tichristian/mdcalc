@@ -25,7 +25,7 @@ class MDResult extends Component {
   }
   render () {
     return (
-      <Container className="container">
+      <Container>
         <Button
           className="button"
           onClick={this.onCalculate.bind(this)}

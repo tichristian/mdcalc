@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { MDInput } from './MDInput';
+import { MDInput } from '../common';
 import { Row, Container, Col, ButtonGroup, Button } from 'react-bootstrap';
 import './style.css';
 import {
@@ -98,7 +98,7 @@ class MDTable extends Component {
 
   render () {
     return (
-      <Container className="container">
+      <Container>
         <Row>
           <Col>Sex</Col>
           <Col>
